@@ -1,8 +1,13 @@
+'use client'; // "The component gets prerendered with SSR or ISR/SSG if possible on the server. The html is send to the client and the javascript is send too. So it gets hydrated on the client and is interactive" 
+
 import AddClass from "@/components/AddClass/AddClass";
 import Course from "@/components/course";
 import Quarter from "@/components/Quarter";
+import React, { Dispatch, useState, SetStateAction } from "react";
 
 export default function Home() {
+  const [isAddingClass, setAddingClass]:[boolean, Dispatch<SetStateAction<boolean>>] = useState(false);
+
   const courses = [
     { season: "Fall", year: "2021", courses: [{ name: "Operating Systems", id: "CSEN 177", unit: "4" }] },
     { season: "Winter", year: "2021", courses: [{ name: "Operating Systems", id: "CSEN 177", unit: "4" }] },
@@ -31,7 +36,8 @@ export default function Home() {
           {courses.map((course, idx) => (
             <Course key={idx} courseName={course.name} id={course.id} unit={course.unit} />
           ))}
-          <AddClass/>
+          {isAddingClass && <text>haha!</text>}
+          <AddClass setAddingClass={setAddingClass}/>
         </div>
       ))}
     </div>
