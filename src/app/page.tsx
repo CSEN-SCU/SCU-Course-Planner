@@ -18,10 +18,10 @@ export default function Home() {
   ] = useState(["", ""]);
 
   return (
-    <div className="grid grid-cols-3 items-center justify-items-center min-h-screen p-8 pb-10 gap-8 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+    <div className="grid grid-cols-3 items-start justify-items-center min-h-screen p-8 pb-10 gap-8 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       {/* userCourses is a .ts file filled with Dummy course data for testing */}
       {userCourses.map(({ season, year, courses }, index) => (
-        <div key={index} className="border-2 #000 p-4 rounded-lg w-96">
+        <div key={index} className="border-2 #000 p-4 rounded-lg w-96 h-auto">
           <Quarter quarterSeason={season} year={year}></Quarter>
           {courses.map((course, idx) => (
             <Course
