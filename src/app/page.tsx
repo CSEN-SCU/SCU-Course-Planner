@@ -1,3 +1,4 @@
+import AddClass from "@/components/AddClass";
 import Course from "@/components/course";
 import Quarter from "@/components/Quarter";
 
@@ -30,6 +31,7 @@ export default function Home() {
           {courses.map((course, idx) => (
             <Course key={idx} courseName={course.name} id={course.id} unit={course.unit} />
           ))}
+          <AddClass/>
         </div>
       ))}
     </div>
